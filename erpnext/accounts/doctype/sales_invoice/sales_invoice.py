@@ -1776,7 +1776,8 @@ class SalesInvoice(SellingController):
 			loyalty_program=self.loyalty_program,
 			include_expired_entry=True,
 		)
-		frappe.db.set_value("Customer", self.customer, "loyalty_program_tier", lp_details.tier_name)
+		customer = frappe.get_doc("Customer", self.customer)
+		customer.db_set("loyalty_program_tier", lp_details.tier_name)
 
 	def get_returned_amount(self):
 		from frappe.query_builder.functions import Sum
@@ -2081,7 +2082,7 @@ def make_delivery_note(source_name, target_doc=None):
 				"postprocess": update_item,
 				"condition": lambda doc: doc.delivered_by_supplier != 1,
 			},
-			"Sales Taxes and Charges": {"doctype": "Sales Taxes and Charges", "add_if_empty": True},
+			"Sales Taxes and Charges": {"doctype": "Sales Taxes and Charges", "reset_value": True},
 			"Sales Team": {
 				"doctype": "Sales Team",
 				"field_map": {"incentives": "incentives"},
