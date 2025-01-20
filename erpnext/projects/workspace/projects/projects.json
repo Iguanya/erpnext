@@ -206,13 +206,6 @@
  "sequence_id": 11.0,
  "shortcuts": [
   {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Learn Project Management",
-   "type": "URL",
-   "url": "https://frappe.school/courses/project-management?utm_source=in_app"
-  },
-  {
    "color": "Blue",
    "format": "{} Assigned",
    "label": "Task",

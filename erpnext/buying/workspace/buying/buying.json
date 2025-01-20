@@ -533,13 +533,6 @@
    "type": "DocType"
   },
   {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Learn Procurement",
-   "type": "URL",
-   "url": "https://frappe.school/courses/procurement?utm_source=in_app"
-  },
-  {
    "color": "Yellow",
    "format": "{} Pending",
    "label": "Material Request",
