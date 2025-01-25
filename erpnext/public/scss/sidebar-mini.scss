@@ -1,0 +1,53 @@
+// clean-this-file
+:root {
+	--sidebar-hover-color: var(--third-color);
+	--sidebar-active-color: var(--second-color);
+	--sidebar-border-color: var(--main-color);
+	--surface-modal: var(--widget-bg);
+	--divider-color: var(--second-color);
+}
+
+[data-theme="dark"] {
+	--sidebar-hover-color: rgba(43, 43, 43, 1);
+	--sidebar-active-color: rgba(66, 66, 66, 1);
+	--sidebar-border-color: #232323;
+	--surface-modal: rgb(0, 0, 0);
+	--divider-color: rgba(52, 52, 52, 1);
+}
+
+[data-theme="watermelon"] {
+	--sidebar-hover-color: var(--third-color);
+	--sidebar-active-color: var(--second-color);
+	--sidebar-border-color: var(--main-color);
+	--surface-modal: var(--widget-bg);
+	--divider-color: var(--second-color);
+}
+
+/* Sidebar Styling */
+.sidebar {
+	background-color: var(--surface-modal);
+	border-right: 1px solid var(--sidebar-border-color);
+}
+
+.sidebar-item {
+	color: var(--primary);
+	padding: 10px;
+	border-radius: 5px;
+	transition: background 0.3s ease-in-out;
+}
+
+.sidebar-item:hover {
+	background-color: var(--sidebar-hover-color);
+}
+
+.sidebar-item.active {
+	background-color: var(--sidebar-active-color);
+	color: white;
+}
+
+.sidebar-divider {
+	border-top: 1px solid var(--divider-color);
+	margin: 10px 0;
+}
+
+
