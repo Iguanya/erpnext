@@ -25,13 +25,15 @@ erpnext.buying = {
 					};
 				});
 
-				this.frm.set_query("project", function (doc) {
-					return {
-						filters: {
-							company: doc.company,
-						},
-					};
-				});
+				const project_filters = {
+					query: "erpnext.controllers.queries.get_project_name",
+					filters: {
+						company: doc.company,
+					},
+				};
+
+				this.frm.set_query("project", (_) => project_filters);
+				this.frm.set_query("project", "items", (_, __, ___) => project_filters);
 
 				if (
 					this.frm.doc.__islocal &&
@@ -681,4 +683,11 @@ erpnext.buying.get_items_from_product_bundle = function (frm) {
 	});
 
 	dialog.show();
+};
+erpnext.buying.prevent_past_schedule_dates = function (frm) {
+	if (frm.doc.transaction_date) {
+		frm.fields_dict["schedule_date"].datepicker?.update({
+			minDate: new Date(frm.doc.transaction_date),
+		});
+	}
 };
